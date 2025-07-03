@@ -20,12 +20,16 @@ More error handling: When the function is called, the parameters that are passed
 Here's a tip. You have to do different things for add, multiply, divide and so on. So you can do a conditional cascade, if/elif/elif/else. That's perfectly valid. But you might want to use the match-case Python statement instead. Look it up! It just improves code appearance.
 Again, as you complete each function, you run the test to see whether everything is correct.
 """
+def calc(n1, n2, operation = 'multiply'):
+    return
 
 """
 Task 4: Data Type Conversion
 Create a function called data_type_conversion. It takes two parameters, the value and the name of the data type requested, one of float, str, or int. Return the converted value.
 Error handling: The function might be called with a bad parameter. For example, the caller might try to convert the string "nonsense" to a float. Catch the error that occurs in this case. If this error occurs, return the string You can't convert {value} into a {type}., except you use the value and data type that are passed as parameters -- so again you use a formatted string.
 """
+def data_type_conversion(value, name):
+    return
 
 """
 Task 5: Grading System, Using *args
@@ -38,12 +42,16 @@ F: Below 60
 When you use *args you get access to a variable named args in your function, which is a tuple, an ordered collection of values like a list. You'll learn more about tuples and lists in the next lesson. There are some helpful functions you can use at this point: sum(args), len(args), and so on. One of the curiosities of Python is that these are not methods of any class. They are just standalone functions.
 Handle the error that occurs if the parameters are nonsense. Return the string "Invalid data was provided." in this case. (Typically, you don't handle every possible exception in your error handling, except if the values in the parameters comes from the end user.)
 """
+def grade(*grades):
+    return
 
 """
 Task 6: Use a For Loop with a Range
 Create a function called repeat. It takes two parameters, a string and a count, and returns a new string that is the old one repeated count times.
 You can get the test to pass by just returning string * count. That would produce the correct return value. But, for this task, do it using a for loop and a range.
 """
+def repeat(string, count):
+    return
 
 """
 Task 7: Student Scores, Using **kwargs
@@ -55,6 +63,8 @@ for key, value in kwargs.items():
 You can also get kwargs.keys() and kwargs.values().
 The arbitrary list of keyword arguments uses the names of students as the keywords and their test score as the value for each.
 """
+def student_scores(**student_data):
+    return
 
 """
 Task 8: Titleize, with String and List Operations
@@ -66,6 +76,8 @@ The in comparison operator: You have seen in used in loops. But it can also be u
 A new trick: As you loop through the words in the words list, it is helpful to have the index of the word for each iteration. You can access that index using the enumerate() function:
 for i, word in enumerate(words):
 """
+def titleize(string):
+    return
 
 """
 Task 9: Hangman, with more String Operations
@@ -78,9 +90,13 @@ secret = "alphabet"
 secret[1] = "_"
 On the other hand, you can concatenate strings with the + operator.
 """
+def hangman(secret, guess):
+    return
 
 """
 Task 10: Pig Latin, Another String Manipulation Exercise
 Pig Latin is a kid's trick language. Each word is modified according to the following rules. (1) If the string starts with a vowel (aeiou), "ay" is tacked onto the end. (2) If the string starts with one or several consonants, they are moved to the end and "ay" is tacked on after them. (3) "qu" is a special case, as both of them get moved to the end of the word, as if they were one consonant letter.
 Create a function called pig_latin. It takes an English string or sentence and converts it to Pig Latin, returning the result. We will assume that there is no punctuation and that everything is lower case.
 """
+def pig_latin(original):
+    return
