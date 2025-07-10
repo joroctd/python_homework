@@ -203,5 +203,24 @@ Task 10: Pig Latin, Another String Manipulation Exercise
 Pig Latin is a kid's trick language. Each word is modified according to the following rules. (1) If the string starts with a vowel (aeiou), "ay" is tacked onto the end. (2) If the string starts with one or several consonants, they are moved to the end and "ay" is tacked on after them. (3) "qu" is a special case, as both of them get moved to the end of the word, as if they were one consonant letter.
 Create a function called pig_latin. It takes an English string or sentence and converts it to Pig Latin, returning the result. We will assume that there is no punctuation and that everything is lower case.
 """
+def find_vowel_index(s):
+    vowels = 'aeiou'
+    for i, char in enumerate(s):
+        if char in vowels:
+            return i
+    return -1
+def pig_latin_single(original):
+    vowel_index = find_vowel_index(original)
+    if vowel_index == -1:
+        return original
+    if vowel_index == 0:
+        return original + 'ay'
+    
+    if original[vowel_index] == 'u' and original[vowel_index-1] == 'q':
+        vowel_index = vowel_index + 1
+    return original[vowel_index:] + original[:vowel_index] + 'ay'
 def pig_latin(original):
-    return
+    words = original.strip().split(' ')
+    new_words = [pig_latin_single(word) for word in words]
+    return ' '.join(new_words)
+
