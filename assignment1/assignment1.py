@@ -180,8 +180,22 @@ secret = "alphabet"
 secret[1] = "_"
 On the other hand, you can concatenate strings with the + operator.
 """
+def is_str(s):
+    return isinstance(s, str)
 def hangman(secret, guess):
-    return
+    if not is_str(secret):
+        return 'Invalid secret provided.'
+    if not is_str(guess):
+        return 'Invalid guess provided.'
+    
+    builder = []
+    for char in secret:
+        if char in guess:
+            builder.append(char)
+        else:
+            builder.append('_')
+    
+    return ''.join(builder)
 
 
 """
