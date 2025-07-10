@@ -122,8 +122,18 @@ for key, value in kwargs.items():
 You can also get kwargs.keys() and kwargs.values().
 The arbitrary list of keyword arguments uses the names of students as the keywords and their test score as the value for each.
 """
-def student_scores(**student_data):
-    return
+def student_scores(search, **student_data):
+    if len(student_data) == 0:
+        return 'No student data provided.'
+
+    match search:
+        case 'best':
+            return max(student_data, key=lambda student: student_data[student])
+        
+        case 'mean':
+            return sum(student_data.values()) / len(student_data)
+
+    return f'Search type {search} not supported.'
 
 
 """
