@@ -24,6 +24,7 @@ Again, as you complete each function, you run the test to see whether everything
 """
 def is_number(n):
     return isinstance(n, (int, float))
+
 def calc(n1, n2, operation = 'multiply'):
     if not is_number(n1) or not is_number(n2):
         return f'You can\'t {operation} those values!'
@@ -182,6 +183,7 @@ On the other hand, you can concatenate strings with the + operator.
 """
 def is_str(s):
     return isinstance(s, str)
+
 def hangman(secret, guess):
     if not is_str(secret):
         return 'Invalid secret provided.'
@@ -209,6 +211,7 @@ def find_vowel_index(s):
         if char in vowels:
             return i
     return -1
+
 def pig_latin_single(original):
     vowel_index = find_vowel_index(original)
     if vowel_index == -1:
@@ -219,6 +222,7 @@ def pig_latin_single(original):
     if original[vowel_index] == 'u' and original[vowel_index-1] == 'q':
         vowel_index = vowel_index + 1
     return original[vowel_index:] + original[:vowel_index] + 'ay'
+
 def pig_latin(original):
     words = original.strip().split(' ')
     new_words = [pig_latin_single(word) for word in words]
