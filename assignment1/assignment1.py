@@ -20,8 +20,33 @@ More error handling: When the function is called, the parameters that are passed
 Here's a tip. You have to do different things for add, multiply, divide and so on. So you can do a conditional cascade, if/elif/elif/else. That's perfectly valid. But you might want to use the match-case Python statement instead. Look it up! It just improves code appearance.
 Again, as you complete each function, you run the test to see whether everything is correct.
 """
+def is_number(n):
+    return isinstance(n, (int, float))
 def calc(n1, n2, operation = 'multiply'):
-    return
+    if not is_number(n1) or not is_number(n2):
+        return f'You can\'t {operation} those values!'
+    
+    match operation:
+        case 'add':
+            return n1 + n2
+        case 'subtract':
+            return n1 - n2
+        case 'multiply':
+            return n1 * n2
+        case 'divide':
+            if (n2 == 0):
+                return f'You can\'t {operation} by 0!'
+            return n1 / n2
+        case 'modulo':
+            return n1 % n2
+        case 'power':
+            return n1 ** n2
+        case 'floor_divide':
+            if (n2 == 0):
+                return f'You can\'t {operation} by 0!'
+            return n1 // n2
+
+    return f'You can\'t {operation} because it is not supported.'
 
 """
 Task 4: Data Type Conversion
