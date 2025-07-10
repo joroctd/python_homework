@@ -87,7 +87,7 @@ def grade(*grades):
         return 'No grades provided.'
     
     try:
-        points = sum(grades) // len(grades)
+        points = sum(grades) // len(grades) # assumes we want to floor here
         if points < 60:
             return 'F'
         if points < 70:
