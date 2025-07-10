@@ -5,12 +5,14 @@ Write a hello function that takes no arguments and returns Hello!.  Now, what ma
 def hello():
     return "Hello!"
 
+
 """
 Task 2: Greet with a Formatted String
 Write a greet function.  It takes one argument, a name, and returns Hello, Name!.  Use a formatted string.  Note that you have to return exactly the right string or the test fails -- but PyTest tells you what didn't match.
 """
 def greet(name):
     return f'Hello, {name}!'
+
 
 """
 Task 3: Calculator
@@ -48,13 +50,25 @@ def calc(n1, n2, operation = 'multiply'):
 
     return f'You can\'t {operation} because it is not supported.'
 
+
 """
 Task 4: Data Type Conversion
 Create a function called data_type_conversion. It takes two parameters, the value and the name of the data type requested, one of float, str, or int. Return the converted value.
 Error handling: The function might be called with a bad parameter. For example, the caller might try to convert the string "nonsense" to a float. Catch the error that occurs in this case. If this error occurs, return the string You can't convert {value} into a {type}., except you use the value and data type that are passed as parameters -- so again you use a formatted string.
 """
-def data_type_conversion(value, name):
-    return
+def data_type_conversion(value, data_type):
+    try:
+        match data_type:
+            case 'float':
+                return float(value)
+            case 'str':
+                return str(value)
+            case 'int':
+                return int(value)
+    except:
+        return f'You can\'t convert {value} into a {data_type}.'
+
+    return f'The data type {data_type} is not supported.'
 
 """
 Task 5: Grading System, Using *args
