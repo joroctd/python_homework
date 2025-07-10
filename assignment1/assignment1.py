@@ -107,7 +107,9 @@ Create a function called repeat. It takes two parameters, a string and a count, 
 You can get the test to pass by just returning string * count. That would produce the correct return value. But, for this task, do it using a for loop and a range.
 """
 def repeat(string, count):
-    return
+    if not type(string) == str:
+        return f'Not a valid string: {string}'
+    return ''.join([string for _ in range(count)])
 
 
 """
