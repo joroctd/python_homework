@@ -147,7 +147,26 @@ A new trick: As you loop through the words in the words list, it is helpful to h
 for i, word in enumerate(words):
 """
 def titleize(string):
-    return
+    if not type(string) == str:
+        return 'Invalid string provided.'
+    
+    words = string.strip().split(' ')
+    if len(words) == 0:
+        return ''
+    
+    first = words.pop(0).capitalize()
+    if len(words) == 0:
+        return first
+    
+    last = words.pop().capitalize()
+    new_words = [first]
+    for word in words:
+        if word in ('a', 'on', 'an', 'the', 'of', 'and', 'is', 'in'):
+            new_words.append(word)
+        else:
+            new_words.append(word.capitalize())
+    new_words.append(last)
+    return ' '.join(new_words)
 
 
 """
