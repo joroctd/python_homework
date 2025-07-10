@@ -70,6 +70,7 @@ def data_type_conversion(value, data_type):
 
     return f'The data type {data_type} is not supported.'
 
+
 """
 Task 5: Grading System, Using *args
 Create a grade function. It should collect an arbitrary number of parameters, compute the average, and return the grade. based on the following scale:
@@ -82,7 +83,23 @@ When you use *args you get access to a variable named args in your function, whi
 Handle the error that occurs if the parameters are nonsense. Return the string "Invalid data was provided." in this case. (Typically, you don't handle every possible exception in your error handling, except if the values in the parameters comes from the end user.)
 """
 def grade(*grades):
-    return
+    if len(grades) == 0:
+        return 'No grades provided.'
+    
+    try:
+        points = sum(grades) // len(grades)
+        if points < 60:
+            return 'F'
+        if points < 70:
+            return 'D'
+        if points < 80:
+            return 'C'
+        if points < 90:
+            return 'B'
+        return 'A'
+    except:
+        return 'Invalid data was provided.'
+
 
 """
 Task 6: Use a For Loop with a Range
@@ -91,6 +108,7 @@ You can get the test to pass by just returning string * count. That would produc
 """
 def repeat(string, count):
     return
+
 
 """
 Task 7: Student Scores, Using **kwargs
@@ -105,6 +123,7 @@ The arbitrary list of keyword arguments uses the names of students as the keywor
 def student_scores(**student_data):
     return
 
+
 """
 Task 8: Titleize, with String and List Operations
 Create a function called titleize. It accepts one parameter, a string. The function returns a new string, where the parameter string is capitalized as if it were a book title.
@@ -117,6 +136,7 @@ for i, word in enumerate(words):
 """
 def titleize(string):
     return
+
 
 """
 Task 9: Hangman, with more String Operations
@@ -131,6 +151,7 @@ On the other hand, you can concatenate strings with the + operator.
 """
 def hangman(secret, guess):
     return
+
 
 """
 Task 10: Pig Latin, Another String Manipulation Exercise
