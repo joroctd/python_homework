@@ -65,6 +65,7 @@ def all_employees_dict():
 
 import os
 ENV_THIS_VALUE = 'THISVALUE'
+
 def set_this_value(string):
     os.environ[ENV_THIS_VALUE] = string
 
@@ -72,3 +73,9 @@ set_this_value('ABC')
 
 def get_this_value():
     return os.getenv(ENV_THIS_VALUE)
+
+
+import custom_module
+
+def set_that_secret(secret):
+    custom_module.set_secret(secret)
