@@ -52,4 +52,6 @@ print(employees)
 
 
 def employee_dict(row):
-    return
+    employee = dict(zip(employees['fields'], row))
+    employee.pop('employee_id')
+    return employee
