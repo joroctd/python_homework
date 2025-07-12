@@ -14,4 +14,13 @@ def read_employees():
         print('Error')
     
     return info
+
 employees = read_employees()
+
+
+def column_index(header):
+    return employees['fields'].index(header)
+
+employee_id_column = column_index('employee_id')
+
+
