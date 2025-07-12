@@ -115,7 +115,7 @@ minutes_set = create_minutes_set()
 from datetime import datetime
 
 def create_minutes_list():
-    return list(map(lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y")), list(minutes_set)))
+    return list(map(lambda x: (x[0], datetime.strptime(x[1], "%B %d, %Y")), minutes_set))
 
 minutes_list = create_minutes_list()
 
