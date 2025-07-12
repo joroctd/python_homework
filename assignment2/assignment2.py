@@ -72,4 +72,3 @@ set_this_value('ABC')
 
 def get_this_value():
     return os.getenv(ENV_THIS_VALUE)
-
