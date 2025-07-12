@@ -24,9 +24,9 @@ def column_index(header):
 employee_id_column = column_index('employee_id')
 
 
-def first_name(row):
-    col = column_index('first_name')
-    return employees['rows'][row][col]
+def first_name(row_num):
+    col_num = column_index('first_name')
+    return employees['rows'][row_num][col_num]
 
 
 def employee_find(employee_id):
@@ -40,3 +40,7 @@ def employee_find_2(employee_id):
         lambda row : int(row[employee_id_column]) == employee_id , 
         employees["rows"]
     ))
+
+
+def employee_dict(row):
+    return
