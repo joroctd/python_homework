@@ -1,14 +1,14 @@
+import csv
+
 def read_employees():
     info = {}
     rows = []
     try:
         with open('../csv/employees.csv') as file:
-            for i, line in enumerate(file):
-                data = line.split(',')
-                if i == 0:
-                    info['fields'] = data
-                else:
-                    rows.append(data)
+            csv_reader = csv.reader(file, delimiter=',')
+            info['fields'] = next(csv_reader)
+            for line in csv_reader:
+                rows.append(line)
         info['rows'] = rows
     except:
         print('Error')
@@ -80,8 +80,6 @@ import custom_module
 def set_that_secret(secret):
     custom_module.set_secret(secret)
 
-
-import csv
 
 def read_minutes():
     def read_single(file_name):
