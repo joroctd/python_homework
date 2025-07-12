@@ -33,3 +33,10 @@ def employee_find(employee_id):
     def employee_match(row):
         return int(row[employee_id_column]) == employee_id
     return list(filter(employee_match, employees['rows']))
+
+
+def employee_find_2(employee_id):
+    return list(filter(
+        lambda row : int(row[employee_id_column]) == employee_id , 
+        employees["rows"]
+    ))
