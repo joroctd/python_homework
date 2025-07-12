@@ -24,3 +24,7 @@ def column_index(header):
 employee_id_column = column_index('employee_id')
 
 
+def first_name(row):
+    col = column_index('first_name')
+    return employees['rows'][row][col]
+
