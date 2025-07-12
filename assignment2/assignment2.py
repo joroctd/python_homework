@@ -61,3 +61,15 @@ def all_employees_dict():
     for row in employees['rows']:
         employees_dict[row[eid_col_ind]] = employee_dict(row)
     return employees_dict
+
+
+import os
+ENV_THIS_VALUE = 'THISVALUE'
+def set_this_value(string):
+    os.environ[ENV_THIS_VALUE] = string
+
+set_this_value('ABC')
+
+def get_this_value():
+    return os.getenv(ENV_THIS_VALUE)
+
