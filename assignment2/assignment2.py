@@ -16,7 +16,6 @@ def read_employees():
     return info
 
 employees = read_employees()
-print(employees)
 
 
 def column_index(header):
@@ -48,10 +47,17 @@ def sort_by_last_name():
     return employees['rows']
 
 sort_by_last_name()
-print(employees)
 
 
 def employee_dict(row):
     employee = dict(zip(employees['fields'], row))
     employee.pop('employee_id')
     return employee
+
+
+def all_employees_dict():
+    eid_col_ind = column_index('employee_id')
+    employees_dict = {}
+    for row in employees['rows']:
+        employees_dict[row[eid_col_ind]] = employee_dict(row)
+    return employees_dict
