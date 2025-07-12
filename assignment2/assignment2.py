@@ -16,6 +16,7 @@ def read_employees():
     return info
 
 employees = read_employees()
+print(employees)
 
 
 def column_index(header):
@@ -40,6 +41,14 @@ def employee_find_2(employee_id):
         lambda row : int(row[employee_id_column]) == employee_id , 
         employees["rows"]
     ))
+
+
+def sort_by_last_name():
+    employees['rows'].sort(key=lambda row : row[column_index('last_name')])
+    return employees['rows']
+
+sort_by_last_name()
+print(employees)
 
 
 def employee_dict(row):
