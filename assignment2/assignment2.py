@@ -79,3 +79,26 @@ import custom_module
 
 def set_that_secret(secret):
     custom_module.set_secret(secret)
+
+
+import csv
+
+def read_minutes():
+    def read_single(file_name):
+        info = {}
+        rows = []
+        try:
+            with open(f'../csv/{file_name}.csv') as file:
+                csv_reader = csv.reader(file, delimiter=',', quotechar='"')
+                info['fields'] = next(csv_reader)
+                for line in csv_reader:
+                    rows.append(tuple(line))
+            info['rows'] = rows
+        except:
+            print('Error')
+        
+        return info
+    
+    return read_single('minutes1'), read_single('minutes2')
+
+minutes1, minutes2 = read_minutes()
