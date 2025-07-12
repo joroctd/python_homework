@@ -28,3 +28,8 @@ def first_name(row):
     col = column_index('first_name')
     return employees['rows'][row][col]
 
+
+def employee_find(employee_id):
+    def employee_match(row):
+        return int(row[employee_id_column]) == employee_id
+    return list(filter(employee_match, employees['rows']))
