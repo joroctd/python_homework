@@ -102,3 +102,11 @@ def read_minutes():
     return read_single('minutes1'), read_single('minutes2')
 
 minutes1, minutes2 = read_minutes()
+
+
+def create_minutes_set():
+    sm1 = set(minutes1['rows'])
+    sm2 = set(minutes2['rows'])
+    return set.union(sm1, sm2)
+
+minutes_set = create_minutes_set()
