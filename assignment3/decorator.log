@@ -1,0 +1,15 @@
+
+function: hello
+positional parameters: ()
+keyword parameters: {}
+return: None
+
+function: truth
+positional parameters: (1, 2, 3)
+keyword parameters: {}
+return: True
+
+function: truth
+positional parameters: ()
+keyword parameters: {'c': 1, 'b': 2, 'a': 3}
+return: True
