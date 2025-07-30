@@ -57,19 +57,24 @@ print(more_employees.info(False))
 # ---
 
 # 4.1 Create a DataFrame from dirty_data.csv file and assign it to the variable dirty_data
-
+dirty_data = pd.read_csv('dirty_data.csv')
+clean_data = dirty_data.copy()
 
 # 4.2 Remove any duplicate rows from the DataFrame
-
+clean_data.drop_duplicates(subset=['Name'], inplace=True)
 
 # 4.3 Convert Age to numeric and handle missing values
-
+clean_data['Age'] = pd.to_numeric(clean_data['Age'], errors='coerce')
+# 4.5 Fill missing numeric values (use fillna).  Fill Age with the mean
+average_age = clean_data['Age'].mean()
+clean_data.fillna({'Age': average_age}, inplace=True)
 
 # 4.4 Convert Salary to numeric and replace known placeholders (unknown, n/a) with NaN
-
-
-# 4.5 Fill missing numeric values (use fillna).  Fill Age which the mean and Salary with the median
-
+clean_data['Salary'] = pd.to_numeric(clean_data['Salary'], errors='coerce')
+clean_data.replace({'Salary': ['unknown', 'n/a']}, pd.NA, inplace=True)
+# 4.5 Fill missing numeric values (use fillna).  Fill Salary with the median
+median_salary = clean_data['Salary'].median()
+clean_data.fillna({'Salary': median_salary}, inplace=True)
 
 # 4.6 Convert Hire Date to datetime
 
