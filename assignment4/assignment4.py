@@ -8,7 +8,8 @@ task1_data_frame = pd.DataFrame({
 })
 
 # 1.2 Add a new column
-
+task1_with_salary = task1_data_frame.copy()
+task1_with_salary.insert(len(task1_with_salary), 'Salary', [70000, 80000, 90000])
 
 # 1.3 Modify an existing column
 
