@@ -43,16 +43,16 @@ more_employees = pd.concat([task2_employees, json_employees], ignore_index=True)
 # ---
 
 # 3.1 Use the head() method
-
+first_three = more_employees.head(3)
 
 # 3.2 Use the tail() method
-
+last_two = more_employees.tail(2)
 
 # 3.3 Get the shape of a DataFrame
-
+employee_shape = more_employees.shape
 
 # 3.4 Use the info() method
-
+print(more_employees.info(False))
 
 # ---
 
