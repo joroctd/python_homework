@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 
 # 1.1 Create a DataFrame from a dictionary
 task1_data_frame = pd.DataFrame({
@@ -16,15 +17,25 @@ task1_older = task1_with_salary.copy()
 task1_older['Age'] = task1_older['Age'] + 1
 
 # 1.4 Save the DataFrame as a CSV file
-task1_older.to_csv('employees.csv', index=False)
+filename = 'employees.csv'
+task1_older.to_csv(filename, index=False)
 
 # ---
 
 # 2.1 Read data from a CSV file
-
+task2_employees = pd.read_csv(filename)
 
 # 2.2 Read data from a JSON file
-
+filename = 'additional_employees.json'
+with open(filename, 'w') as file:
+    data = json.dumps({
+        'Name': ['Eve', 'Frank'],
+        'Age': [28, 40],
+        'City': ['Miami', 'Seattle'],
+        'Salary': [60000, 95000]
+    })
+    file.write(data)
+json_employees = pd.read_json(filename)
 
 # 2.3 Combine DataFrames
 
