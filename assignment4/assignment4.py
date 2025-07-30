@@ -77,7 +77,8 @@ median_salary = clean_data['Salary'].median()
 clean_data.fillna({'Salary': median_salary}, inplace=True)
 
 # 4.6 Convert Hire Date to datetime
-
+clean_data['Hire Date'] = pd.to_datetime(clean_data['Hire Date'], format='mixed')
 
 # 4.7 Strip extra whitespace and standardize Name and Department as uppercase
-
+clean_data['Name'] = clean_data['Name'].apply(str.strip)
+clean_data['Department'] = clean_data['Department'].apply(lambda d : str.strip(d).upper())
