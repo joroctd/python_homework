@@ -38,7 +38,7 @@ with open(filename, 'w') as file:
 json_employees = pd.read_json(filename)
 
 # 2.3 Combine DataFrames
-
+more_employees = pd.concat([task2_employees, json_employees], ignore_index=True)
 
 # ---
 
